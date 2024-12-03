@@ -25,16 +25,16 @@
                 <td>{{ $data->title }}</td>
                 <td>{{ $data->text }}</td>
                 <td>
-                    <a href="{{ route('read.note', ['slug' => $data->slug]) }}">Lihat</a>
-                    <a href="{{ route('edit.note', $data->slug') }}">Edit</a>
                     <form action="{{ route('destroy.note') }}">
+                        <a href="{{ route('read.note', $data->slug) }}">Lihat</a>
+                        <a href="{{ route('edit.note', $data->slug) }}">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit">Delete</button>
                     </form>
-                </td>
                 @empty
                 <P>tidak ada catatan</P>
+                </td>
             </tr>
             @endforelse
         </tbody>

@@ -13,19 +13,7 @@ class NoteController extends Controller
 {
     public function home(Request $request): View
     {
-        $search = $request->input('search');
-        $query = Note::query()->where();
-
-        if ($search) {
-            $query->where('title', 'LIKE', "%{$search}%");
-        }
-
-        $note = $query->paginate(9);
-
-        if ($form->isEmpty() && $search) {
-            session()->flash('error', 'Catatan tidak ditemukan');
-        }
-
+        $note = Note::all();
         return view('website.home', compact('note'));
     }
 

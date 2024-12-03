@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\NoteController;
 
-Route::get('/', function () {
-    return view('website.home');
-});
+// Route::get('/', function () {
+//     return view('website.home');
+// });
 
 Route::prefix('/home')->group(function () {
     Route::get('/', [NoteController::class, 'home'])->name('home');
